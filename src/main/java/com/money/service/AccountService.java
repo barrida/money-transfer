@@ -48,7 +48,7 @@ public class AccountService {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	public String saveAccount(Account account) {
-		return accountDao.updateAccount(account);
+		return accountDao.saveAccount(account);
 				
 	}
 

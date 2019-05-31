@@ -15,7 +15,7 @@ public interface AccountDAO {
 
 	void removeAccount();
 
-	String updateAccount(Account account);
+	String saveAccount(Account account);
 
 //	/**
 //	 * Receive money

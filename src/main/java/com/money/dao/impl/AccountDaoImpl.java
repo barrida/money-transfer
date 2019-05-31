@@ -51,7 +51,7 @@ public class AccountDaoImpl implements AccountDAO {
 		}
 	}
 
-	public String updateAccount(Account account) {
+	public String saveAccount(Account account) {
 		String result = "";
 		if (accounts.get(account.getAccountId()) != null) {
 			result = "Updated Account with id=" + account.getAccountId();

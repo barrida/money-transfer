@@ -49,7 +49,7 @@ public class UserService {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	public String saveUser(User user) {
-		return userDao.updateUser(user);
+		return userDao.saveUser(user);
 	}
 
 }

@@ -13,5 +13,5 @@ public interface UserDAO {
 
 	void removeUser();
 
-	String updateUser(User user);
+	String saveUser(User user);
 }

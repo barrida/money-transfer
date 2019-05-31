@@ -13,9 +13,9 @@ public class UserDaoImpl implements UserDAO {
 	private static Map<Integer, User> users = new HashMap<Integer, User>();
 
 	static {
-		users.put(1, new User(0, "Suleyman", "Yildirim", "12-02-1982", "077878986", "UK", "NE11WW", "Newcastle",
+		users.put(0, new User(0, "Suleyman", "Yildirim", "12-02-1982", "077878986", "UK", "NE11WW", "Newcastle",
 				"user1@gmail.com"));
-		users.put(2, new User(3, "Canan", "Yildirim", "12-08-1970", "55567765", "TR", "35456", "Izmir",
+		users.put(1, new User(3, "Canan", "Yildirim", "12-08-1970", "55567765", "TR", "35456", "Izmir",
 				"user2@hotmail.com"));
 	}
 
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDAO {
 		}
 	}
 
-	public String updateUser(User user) {
+	public String saveUser(User user) {
 		String result = "";
 		if (users.get(user.getUserId()) != null) {
 			result = "Updated User with id=" + user.getUserId();
