@@ -15,7 +15,7 @@ Demonstrate with tests that the API works as expected
 ## Framework decision
 Options for micro RESTful frameworks. A microframework is a term used to refer to minimalistic web application frameworks:  
 
-DropWizzard - stand-alone mode, lightweight, easy to set-up  
+DropWizzard - stand-alone mode, lightweight, easy to set-up, similar to Spring Boot, it uses existing Jetty HTTP library embedding it directly into your project, this way external application server is not needed.  
 Ninja Web Framework - stand-alone mode, as a self-executing jar package bundled with Jetty.  
 Spark Framework - Lack of documentation is missing  
 
