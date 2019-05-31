@@ -40,6 +40,12 @@ public class UserDaoImpl implements UserDAO {
 			users.remove(users.keySet().toArray()[0]);
 		}
 	}
+	
+	public void removeUserByIndex(int userIndex) {
+		if (!users.keySet().isEmpty()) {
+			users.remove(users.get(userIndex));
+		}
+	}
 
 	public String saveUser(User user) {
 		String result = "";

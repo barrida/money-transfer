@@ -5,13 +5,16 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 
 import com.money.dao.impl.AccountDaoImpl;
 import com.money.dao.impl.UserDaoImpl;
 import com.money.model.Account;
 import com.money.model.User;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserDAOTest {
 
 	static UserDaoImpl userDao;
@@ -39,15 +42,13 @@ public class UserDAOTest {
 
 	@Test
 	public void testGetTotalUserSize() {
-		List<User> users = userDao.getAllUsers();
-		assertEquals(3, userDao.getTotalUserSize());
+		assertEquals(2, userDao.getTotalUserSize());
 	}
 
 	@Test
 	public void testRemoveUser() {
-		List<User> users = userDao.getAllUsers();
-		//userDao.removeUser();
-		//assertEquals(2, userDao.getTotalUserSize());
+		userDao.removeUserByIndex(0);
+		assertEquals(2, userDao.getTotalUserSize());
 	}
 
 	@Test
