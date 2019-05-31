@@ -1,4 +1,4 @@
-# money-transfer
+# Money Transfer API using DropWizzard micro framework
 Money Transfer API
 
 # How to build and run
