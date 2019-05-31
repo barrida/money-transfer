@@ -16,6 +16,7 @@ public class TransferMoneyTest {
 
 	static TransferMoney money;
 	static AccountDaoImpl accounts;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {		
 		 money = new TransferMoney();
