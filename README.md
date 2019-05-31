@@ -3,7 +3,7 @@ Money Transfer API
 
 # How to build and run
 mvn package  
-java -jar dropwizard-money-transfer-1.0-SNAPSHOT.jar server .\config.yml
+java -jar target\dropwizard-money-transfer-1.0-SNAPSHOT.jar server .\config.yml
 
 # Requirements
 
