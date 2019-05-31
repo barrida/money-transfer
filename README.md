@@ -2,7 +2,14 @@
 Money Transfer API
 
 # How to build and run
-mvn package  
+### Build with unit test
+mvn package
+
+### Build without unit tests
+If you get unit test error for rate calculation, skip the entire test cases. Money rates are retrieved on real time:  
+mvn package -DskipTests
+
+### Run
 java -jar target\dropwizard-money-transfer-1.0-SNAPSHOT.jar server .\config.yml
 
 # REST APIs
