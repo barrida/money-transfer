@@ -19,6 +19,10 @@ public class TransferMoney implements ITransfer {
 
 	final Rate rate = new Rate();
 	int result = -1;
+	
+	public TransferMoney() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int transferMoney(Account sender, Account receiver, BigDecimal amount) throws Exception {
 
