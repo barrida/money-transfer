@@ -1,4 +1,4 @@
-package com.revolut;
+package com.money;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

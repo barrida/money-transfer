@@ -46,22 +46,29 @@ public class App extends Application<Config> {
 		env.jersey().register(AccountService.class);
 		env.jersey().register(UserService.class);
 
-		// env.servlets().addServlet("ProductsServlet",
-		// ProductsServlet.class).addMapping("/products");
-
 		env.healthChecks().register("template", new RestHealthCheck(config.getVersion()));
 	}
 
-	private static void startServer() throws Exception {
-		Server server = new Server(8080);
-		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-		context.setContextPath("/");
-		server.setHandler(context);
-		ServletHolder servletHolder = context.addServlet(ServletContainer.class, "/*");
-		servletHolder.setInitParameter("jersey.config.server.provider.classnames", UserService.class.getCanonicalName()
-				+ "," + TransferService.class.getCanonicalName() + "," + AccountService.class.getCanonicalName());
-		server.start();
-
+	@Override
+	public void initialize(Bootstrap<Config> bootstrap) {
+		 bootstrap.setConfigurationSourceProvider(new SubstitutingSourceProvider(
+		            bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor(false)));
 	}
+
+	// private static void startServer() throws Exception {
+	// Server server = new Server(8080);
+	// ServletContextHandler context = new
+	// ServletContextHandler(ServletContextHandler.SESSIONS);
+	// context.setContextPath("/");
+	// server.setHandler(context);
+	// ServletHolder servletHolder = context.addServlet(ServletContainer.class,
+	// "/*");
+	// servletHolder.setInitParameter("jersey.config.server.provider.classnames",
+	// UserService.class.getCanonicalName()
+	// + "," + TransferService.class.getCanonicalName() + "," +
+	// AccountService.class.getCanonicalName());
+	// server.start();
+	//
+	// }
 
 }

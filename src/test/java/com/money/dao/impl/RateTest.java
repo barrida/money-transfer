@@ -1,4 +1,4 @@
-package com.revolut.dao.impl;
+package com.money.dao.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
