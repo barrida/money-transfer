@@ -2,12 +2,18 @@ package com.money.dao.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Currency;
 import java.util.Locale;
 
+import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
+import javax.money.convert.CurrencyConversion;
+import javax.money.convert.MonetaryConversions;
 import javax.money.format.MonetaryAmountFormat;
 import javax.money.format.MonetaryFormats;
+
+import org.javamoney.moneta.Money;
 
 import com.money.dao.IRate;
 import com.money.dao.impl.Rate;
@@ -51,6 +57,19 @@ public class RateTest extends TestCase {
 		BigDecimal convertUSDtoGBP = rate.calculateRate("USD", "GBP", new BigDecimal(1));
 		assertNotNull(convertUSDtoGBP);
 		assertEquals("0.7914", convertUSDtoGBP.toString());
+	}
+	
+	public void testMonetaryConversion(){
+		
+		//Convert 100 EUR to GBP
+		CurrencyUnit BRL = Monetary.getCurrency("EUR");
+		CurrencyConversion conversion = MonetaryConversions.getConversion("GBP");
+		Money money = Money.of(100, BRL).with(conversion);
+		assertEquals(88,money.getNumber().intValue());
+		
+		//Convert 100 GBP to EUR
+		Money toEUR = Money.of(100, Monetary.getCurrency("GBP")).with(MonetaryConversions.getConversion("EUR"));
+		assertEquals(112,toEUR.getNumber().intValue());
 	}
 
 }

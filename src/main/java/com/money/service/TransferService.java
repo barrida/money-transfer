@@ -19,8 +19,6 @@ import com.money.dao.impl.TransferMoney;
 import com.money.model.Account;
 
 @Path("/transfer")
-@Produces(MediaType.APPLICATION_JSON)
-
 public class TransferService {
 
 	TransferMoney transfer = new TransferMoney();
