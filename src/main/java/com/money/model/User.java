@@ -17,6 +17,10 @@ public class User {
 	private String address;
     private String email;
     
+    public User(){
+    	
+    }
+    
 	public User(int userId, String name, String surname, String dob, String phone, String country, String postalCode,
 			String address, String email) {
 		super();

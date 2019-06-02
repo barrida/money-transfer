@@ -2,6 +2,7 @@ package com.money.service;
 
 import java.math.BigDecimal;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -25,7 +26,7 @@ public class TransferService {
 	TransferMoney transfer = new TransferMoney();
 	AccountDaoImpl accountDao = new AccountDaoImpl();
 
-	@POST
+	@GET
 	@Timed
 	@Path("/{amount}/from/{from}/to/{to}")
 	@Produces(MediaType.APPLICATION_JSON)

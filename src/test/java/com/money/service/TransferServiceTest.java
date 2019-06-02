@@ -29,62 +29,16 @@ import org.junit.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.money.model.Account;
 
-public class TransferServiceTest {
-	protected static Server server = null;
-    protected static PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager();
-	protected static HttpClient client;
-    protected URIBuilder builder = new URIBuilder().setScheme("http").setHost("localhost:8080");
-    protected ObjectMapper mapper = new ObjectMapper();
-	
-    @BeforeClass
-    public static void setup() throws Exception {
-        
-        startServer();
-        connManager.setDefaultMaxPerRoute(100);
-        connManager.setMaxTotal(200);
-        client= HttpClients.custom()
-                .setConnectionManager(connManager)
-                .setConnectionManagerShared(true)
-                .build();
+public class TransferServiceTest extends TestService{
 
-    }
-
-    @AfterClass
-    public static void closeClient() throws Exception {
-        //server.stop();
-        HttpClientUtils.closeQuietly(client);
-    }
-
-
-    private static void startServer() throws Exception {
-        if (server == null) {
-            server = new Server(8080);
-            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-            context.setContextPath("/");
-            server.setHandler(context);
-            ServletHolder servletHolder = context.addServlet(ServletContainer.class, "/*");
-            servletHolder.setInitParameter("jersey.config.server.provider.classnames",
-                    UserService.class.getCanonicalName() + "," +
-                            TransferService.class.getCanonicalName() + "," +
-                            AccountService.class.getCanonicalName());
-            server.start();
-        }
-    }
-    
     @Test
 	public void testTransferMoney() throws URISyntaxException, ClientProtocolException, IOException {
     	
     	//Transfer 100 TRY (default currency of User 1) from User 1 to User 2. 
 	    URI uri = builder.setPath("/transfer/100/from/1/to/2").build();
-	    HttpPost request = new HttpPost(uri);
+	    HttpGet request = new HttpGet(uri);
         HttpResponse response = client.execute(request);
-        int statusCode = response.getStatusLine().getStatusCode();
-        
-        assertEquals(200, statusCode);
-        
-        
+        int statusCode = response.getStatusLine().getStatusCode();   
+        assertEquals(200, statusCode);     
 	}
-	
-	
-
 }

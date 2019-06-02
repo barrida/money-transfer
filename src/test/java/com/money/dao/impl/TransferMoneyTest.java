@@ -34,7 +34,6 @@ public class TransferMoneyTest {
 		Account sender = accounts.getAccountById(1); // 1400 EUR
 		Account receiver = accounts.getAccountById(2); // 122 GBP
 		BigDecimal balance = new BigDecimal(100); // 100 EUR = 88.1480  GBP as of today
-		TransferMoney money =  new TransferMoney();
 		money.transferMoney(sender, receiver, balance);
 		assertEquals("1300.0000", sender.getBalance().toString()); // 1400 EUR - 100 EUR = 1300
 		assertEquals("210.1480", receiver.getBalance().toString()); // 122 GBP + 88.1480 GBP = 210.1480

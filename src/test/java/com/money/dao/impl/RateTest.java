@@ -42,15 +42,15 @@ public class RateTest extends TestCase {
 
 		BigDecimal convertEURtoGBP = rate.calculateRate("EUR", "GBP", new BigDecimal(100));
 		assertNotNull(convertEURtoGBP);
-		assertEquals("88.1480", convertEURtoGBP.toString());
+		assertEquals(88, convertEURtoGBP.intValue());
 
 		BigDecimal convertGBPtoUSD = rate.calculateRate("GBP", "USD", new BigDecimal(1));
 		assertNotNull(convertGBPtoUSD);
-		assertEquals("1.2631", convertGBPtoUSD.toString());
+		assertEquals("1.2636", convertGBPtoUSD.toString());
 
 		BigDecimal convertUSDtoGBP = rate.calculateRate("USD", "GBP", new BigDecimal(1));
 		assertNotNull(convertUSDtoGBP);
-		assertEquals("0.7917", convertUSDtoGBP.toString());
+		assertEquals("0.7914", convertUSDtoGBP.toString());
 	}
 
 }

@@ -22,10 +22,10 @@ public class Rate implements IRate {
 	}
 
 	public BigDecimal calculateRate(String from, String to, BigDecimal amount) {
-		MonetaryAmount amountFrom = Monetary.getDefaultAmountFactory().setCurrency(from).setNumber(amount).create();
+		MonetaryAmount amountFrom = Monetary.getDefaultAmountFactory().setCurrency(from).setNumber(amount.intValue()).create();
 		CurrencyConversion amountTo = MonetaryConversions.getConversion(to);
 		MonetaryAmount convertedAmount = amountFrom.with(amountTo);
-		BigDecimal rate = new BigDecimal(convertedAmount.getNumber().toString()).setScale(4, RoundingMode.HALF_EVEN);
+		BigDecimal rate = new BigDecimal(convertedAmount.getNumber().toString()).setScale(1, RoundingMode.HALF_EVEN);
 		return rate;
 	}
 
