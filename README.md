@@ -2,8 +2,29 @@
 Money Transfer API
 
 # How to build and run
-mvn package  
+### Build with unit test
+mvn package
+
+### Build without unit tests
+If you get unit test error for rate calculation, skip the entire test cases. Money rates are retrieved on real time:  
+mvn package -DskipTests
+
+### Run
 java -jar target\dropwizard-money-transfer-1.0-SNAPSHOT.jar server .\config.yml
+
+# REST APIs
+
+    POST    /transfer/{amount}/from/{from}/to/{to} (com.money.service.TransferService)
+    GET     /account/all (com.money.service.AccountService)
+    GET     /account/get/{id} (com.money.service.AccountService)
+    GET     /account/remove (com.money.service.AccountService)
+    POST    /account/save (com.money.service.AccountService)
+    GET     /user/all (com.money.service.UserService)
+    GET     /user/get/{id} (com.money.service.UserService)
+    GET     /user/remove (com.money.service.UserService)
+    POST    /user/save (com.money.service.UserService)
+    
+ Sample Access URI: http://localhost:8080/user/all
 
 # Requirements
 
