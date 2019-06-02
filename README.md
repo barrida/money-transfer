@@ -38,7 +38,7 @@ Options for micro RESTful frameworks. A microframework is a term used to refer t
 
 DropWizzard - stand-alone mode, lightweight, easy to set-up, similar to Spring Boot, it uses existing Jetty HTTP library embedding it directly into your project, this way external application server is not needed.  
 Ninja Web Framework - stand-alone mode, as a self-executing jar package bundled with Jetty.  
-Spark Framework - Lack of documentation is missing  
+Spark Framework - Lack of documentation  
 
 ## Micro frameworks
 https://www.gajotres.net/best-available-java-restful-micro-frameworks/  
